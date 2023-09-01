@@ -42,7 +42,7 @@ export default function Header() {
 							<a href="#contact">Contact</a>
 						</S.NavBoxMobile>
 
-						<Button title="Agendar Corte" />
+						<Button title="Schedule Haircut" />
 					</S.MenuMobile>
 				) : null}
 			</MediaQuery>
