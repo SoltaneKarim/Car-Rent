@@ -1,52 +1,47 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import Section from "@styled/Section";
-
-import * as S from "./gallery.styled";
-
+import axios from "axios";
+import ShopDetails from './ShopDetails.jsx'
+import AddPost from "./AddPost.jsx";
 export default function Gallery() {
-	return (
-		<Section>
-			<a id="gallery" />
-			<h2>Gallery</h2>
+    const [data, setData] = useState([]);
 
-			<p className="description">
-			These photos were all taken in our barbershop. As you can see, our
-The environment is pleasant and suitable for taking care of you and your self-esteem.
-			</p>
+  const fetchData = async () => {
+    console.log('Fetching data...',data);
+    try {
+      const response = await axios.get('http://127.0.0.1:5000/product');
+      setData(response.data);
+      console.log('Data fetched:', response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-			<S.BoxGallery>
-				<S.Photo className="photo--1">
-					<img src="/assets/images/gallery/photo1.png" alt="photo 1" />
-				</S.Photo>
+  useEffect(() => {
+    fetchData();
+  }, []);
+  return (
+    <Section>
+      <a id="gallery" />
+      <h2>Shop</h2>
+      <p className="description">
+        These photos were all taken in our barbershop. As you can see, our The
+        environment is pleasant and suitable for taking care of you and your
+        self-esteem.
+      </p>
+      <div className="wahbi-lkhazri" style={{
+  display: 'grid',
+  gap: '60px',
+  alignItems: 'center',
+  gridTemplateColumns: 'repeat(3, 1fr)'
+}}> 
 
-				<S.Photo className="photo--2">
-					<img src="/assets/images/gallery/photo2.png" alt="Photo 2" />
-				</S.Photo>
+          {data.map((element, key) => (
+            <ShopDetails key={key} element={element} />
+          ))}
 
-				<S.Photo className="photo--3">
-					<img src="/assets/images/gallery/photo3.png" alt="Photo 3" />
-				</S.Photo>
-
-				<S.Photo className="photo--4">
-					<img src="/assets/images/gallery/photo4.png" alt="Photo 4" />
-				</S.Photo>
-
-				<S.Photo className="photo--5">
-					<img src="/assets/images/gallery/photo5.png" alt="Photo 5" />
-				</S.Photo>
-
-				<S.Photo className="photo--6">
-					<img src="/assets/images/gallery/photo6.png" alt="Photo 6" />
-				</S.Photo>
-
-				<S.Photo className="photo--7">
-					<img src="/assets/images/gallery/photo7.png" alt="Photo 7" />
-				</S.Photo>
-
-				<S.Photo className="photo--8">
-					<img src="/assets/images/gallery/photo8.png" alt="Photo 8" />
-				</S.Photo>
-			</S.BoxGallery>
-		</Section>
-	);
+      </div>
+      <AddPost />
+    </Section>
+  );
 }

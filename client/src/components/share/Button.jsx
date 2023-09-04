@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = ({ title, outline }) => (
-	<ButtonStyled invert={outline}>{title}</ButtonStyled>
+    <a href="#contact"><ButtonStyled invert={outline}>{title}     </ButtonStyled></a>
 );
 
 const ButtonStyled = styled.button`

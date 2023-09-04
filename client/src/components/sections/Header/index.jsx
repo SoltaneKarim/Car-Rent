@@ -22,7 +22,7 @@ export default function Header() {
 					<a href="#about">About</a>
 					<a href="#services">services</a>
 					<a href="#team">Team</a>
-					<a href="#gallery">Gallery</a>
+					<a href="#gallery">Shop</a>
 					<a href="#contact">Contact</a>
 				</S.NavBox>
 
@@ -38,8 +38,8 @@ export default function Header() {
 							<a href="#about">About</a>
 							<a href="#services">services</a>
 							<a href="#team">Team</a>
-							<a href="#gallery">Gallery</a>
-							<a href="#contact">Contact</a>
+							<a href="#gallery">Shop</a>
+							<a href="#contact">Contacto</a>
 						</S.NavBoxMobile>
 
 						<Button title="Schedule Haircut" />

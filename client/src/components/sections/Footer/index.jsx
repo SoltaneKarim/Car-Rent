@@ -57,7 +57,7 @@ export default function Footer() {
             <a href="#about">About us</a>
             <a href="#services">Services</a>
             <a href="#team">Team</a>
-            <a href="#gallery">Gallery</a>
+            <a href="#gallery">Shop</a>
             <a href="#location">Location</a>
             <a href="#contact">Contact</a>
           </S.Links>
